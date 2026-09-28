@@ -3677,19 +3677,172 @@ select.form-control option {
     justify-content: center;
   }
 
-  /* Comparison & Legal Tables Mobile */
+  /* Comparison & Pricing Tables Mobile Responsive Cards */
   .comparison-table-wrapper,
   .legal-table-responsive {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding: 10px 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: visible !important;
+    padding: 4px 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
   }
 
   .comparison-table,
   .legal-table {
-    min-width: 520px;
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+  }
+
+  .comparison-table thead,
+  .legal-table thead {
+    display: none !important;
+  }
+
+  .comparison-table tbody,
+  .legal-table tbody {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    width: 100% !important;
+  }
+
+  .comparison-table tr,
+  .legal-table tr {
+    display: flex !important;
+    flex-direction: column !important;
+    background: rgba(13, 21, 39, 0.88) !important;
+    border: 1px solid rgba(212, 175, 55, 0.28) !important;
+    border-radius: 14px !important;
+    padding: 16px 14px !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    gap: 10px !important;
+  }
+
+  .comparison-table td,
+  .legal-table td {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+
+  /* Neden Karaca Lux - Criteria Heading */
+  .why-us-section .comparison-table tr td:first-child {
+    font-size: 1.02rem !important;
+    font-weight: 800 !important;
+    color: var(--gold-light) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding-bottom: 8px !important;
+    margin-bottom: 2px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  .why-us-section .comparison-table tr td:first-child::before {
+    content: '👑';
+    font-size: 0.95rem;
+  }
+
+  /* Neden Karaca Lux - Highlighted Karaca Lux cell */
+  .comparison-table td.col-highlight {
+    background: linear-gradient(135deg, rgba(229, 169, 60, 0.18) 0%, rgba(229, 169, 60, 0.06) 100%) !important;
+    border: 1px solid rgba(229, 169, 60, 0.45) !important;
+    border-radius: 10px !important;
+    padding: 12px 14px !important;
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    color: #ffffff !important;
+  }
+
+  .comparison-table td.col-highlight::before {
+    content: '★ KARACA LUX TAŞIMACILIK:';
+    display: block;
+    font-weight: 800;
+    font-size: 0.76rem;
+    color: var(--gold-light);
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+  }
+
+  /* Neden Karaca Lux - Ordinary Movers cell */
+  .comparison-table td.col-others {
+    background: rgba(239, 68, 68, 0.08) !important;
+    border: 1px solid rgba(239, 68, 68, 0.28) !important;
+    border-radius: 10px !important;
+    padding: 12px 14px !important;
+    font-size: 0.86rem !important;
+    line-height: 1.5 !important;
+    color: #cbd5e1 !important;
+  }
+
+  .comparison-table td.col-others::before {
+    content: '✕ SIRADAN / KORSAN NAKLİYECİLER:';
+    display: block;
+    font-weight: 700;
+    font-size: 0.74rem;
+    color: #f87171;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+  }
+
+  /* Route Pages Pricing Tables Mobile Cards */
+  .price-table-section .comparison-table tr td:first-child {
+    font-size: 1.05rem !important;
+    font-weight: 800 !important;
+    color: var(--gold-light) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding-bottom: 8px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .price-table-section .comparison-table tr td:nth-child(2) {
+    font-size: 1.15rem !important;
+    font-weight: 800 !important;
+    color: var(--gold-primary) !important;
+    background: rgba(229, 169, 60, 0.1) !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    border: 1px dashed rgba(229, 169, 60, 0.3) !important;
+    display: inline-block !important;
+    width: fit-content !important;
+  }
+
+  .price-table-section .comparison-table tr td:nth-child(3) {
+    font-size: 0.88rem !important;
+    color: #e2e8f0 !important;
+    line-height: 1.4 !important;
+    padding: 4px 0 !important;
+  }
+
+  .price-table-section .comparison-table tr td:nth-child(3)::before {
+    content: '📦 Dahil: ';
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.82rem;
+  }
+
+  .price-table-section .comparison-table tr td:nth-child(4) {
+    font-size: 0.84rem !important;
+    color: #94a3b8 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+
+  .price-table-section .comparison-table tr td:nth-child(4)::before {
+    content: '⏱️ Süre / Teslimat: ';
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.82rem;
   }
 
   /* Legal Pages Mobile */
