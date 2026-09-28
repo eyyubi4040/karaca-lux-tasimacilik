@@ -1,0 +1,6 @@
+# Robots.txt for Karaca Lux Taşımacılık
+User-agent: *
+Allow: /
+
+# Sitemap Location
+Sitemap: https://karacaluxnakliyat.com/sitemap.xml

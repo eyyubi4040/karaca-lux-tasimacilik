@@ -1,0 +1,12 @@
+.git
+.gitignore
+.gemini
+.tempmediaStorage
+.user_uploaded
+.agents
+node_modules
+scratch*
+*.log
+*.tmp
+*.bak
+*.md

@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  karaca-lux-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: karaca-lux-web
+    restart: always
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+    networks:
+      - karaca-network
+
+networks:
+  karaca-network:
+    driver: bridge
