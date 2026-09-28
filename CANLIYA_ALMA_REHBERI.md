@@ -36,7 +36,7 @@ docker ps
 docker logs -f karaca-lux-web
 ```
 
-Site artık `http://sunucu-ip-adresiniz` veya `http://karacaluxnakliyat.com` üzerinde yayında olacaktır.
+Site artık `http://sunucu-ip-adresiniz` veya `http://karacalux.com` üzerinde yayında olacaktır.
 
 ---
 
@@ -50,11 +50,11 @@ sudo apt update
 sudo apt install nginx certbot python3-certbot-nginx -y
 
 # 2. Proje dosyalarını web kök dizinine kopyalayın
-sudo cp -r /path/to/karaca-lux-tasimacilik/* /var/www/karacaluxnakliyat/
-sudo chown -R www-data:www-data /var/www/karacaluxnakliyat/
+sudo cp -r /path/to/karaca-lux-tasimacilik/* /var/www/karacalux/
+sudo chown -R www-data:www-data /var/www/karacalux/
 
 # 3. SSL Sertifikasını tek komutla kurun (Let's Encrypt)
-sudo certbot --nginx -d karacaluxnakliyat.com -d www.karacaluxnakliyat.com
+sudo certbot --nginx -d karacalux.com -d www.karacalux.com
 ```
 
 ---
