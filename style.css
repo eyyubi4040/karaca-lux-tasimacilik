@@ -1208,6 +1208,8 @@ button, input, select, textarea {
 
 .form-control {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   background: rgba(8, 13, 26, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: #fff;
@@ -1216,12 +1218,32 @@ button, input, select, textarea {
   font-size: 0.9rem;
   outline: none;
   transition: var(--transition-fast);
+  min-width: 0;
 }
 
 .form-control:focus {
   border-color: var(--gold-primary);
   box-shadow: 0 0 10px rgba(229, 169, 60, 0.25);
   background: rgba(13, 21, 39, 0.95);
+}
+
+/* Date Input Mobile & Cross-Browser Fix */
+input[type="date"].form-control,
+input[type="date"] {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  color-scheme: dark;
+  padding: 9px 12px;
+  font-family: inherit;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.8) sepia(100%) saturate(350%) hue-rotate(5deg);
+  cursor: pointer;
+  padding: 2px;
+  margin-left: 6px;
 }
 
 select.form-control {
