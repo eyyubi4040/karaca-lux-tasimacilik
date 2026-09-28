@@ -2909,233 +2909,7 @@ select.form-control option {
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN (MEDIA QUERIES)
-   ========================================================================== */
-@media (max-width: 1200px) {
-  .nav-menu {
-    gap: 8px;
-  }
-  .nav-link {
-    font-size: 0.8rem;
-    padding: 4px 2px;
-  }
-  .logo-img {
-    height: 52px;
-  }
-  .brand-name {
-    font-size: 1.25rem;
-  }
-}
-
-@media (max-width: 1080px) {
-  .nav-menu, .nav-actions .btn {
-    display: none;
-  }
-
-  .mobile-toggle {
-    display: flex;
-  }
-
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-
-  .quick-quote-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .calc-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .summary-sticky-card {
-    position: static;
-  }
-
-  .routes-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .gallery-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .gallery-item.large-item {
-    grid-column: span 2;
-  }
-
-  .process-timeline {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .testimonials-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  :root {
-    --nav-height: 72px;
-  }
-
-  .logo-img {
-    height: 50px;
-  }
-
-  .brand-name {
-    font-size: 1.2rem;
-  }
-
-  .d-none-mobile {
-    display: none !important;
-  }
-
-  .hero-section {
-    background-position: 75% center;
-    padding: 40px 0 75px 0;
-  }
-
-  .hero-bg-overlay {
-    background: linear-gradient(
-      180deg,
-      rgba(6, 10, 20, 0.85) 0%,
-      rgba(6, 10, 20, 0.60) 45%,
-      rgba(6, 10, 20, 0.88) 100%
-    );
-  }
-
-  html, body {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow-x: hidden !important;
-    overflow-x: clip !important;
-  }
-
-  .container {
-    padding: 0 16px;
-    max-width: 100%;
-  }
-
-  .hero-slider-bar {
-    bottom: 12px;
-    right: 12px;
-    left: 12px;
-    max-width: calc(100% - 24px);
-    justify-content: space-between;
-    padding: 6px 10px;
-    box-sizing: border-box;
-  }
-
-  .hero-slider-caption {
-    font-size: 0.70rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: 55%;
-  }
-
-  .hero-floating-content {
-    max-width: 100%;
-    margin-bottom: 20px;
-  }
-
-  .hero-floating-content .hero-title {
-    font-size: 1.8rem;
-  }
-
-  .hero-floating-content .hero-desc {
-    font-size: 0.95rem;
-  }
-
-  .section-title {
-    font-size: 1.8rem;
-  }
-
-  .routes-grid, .services-grid, .stats-grid, .testimonials-grid, .gallery-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .showcase-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .room-selector-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .packaging-features-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .process-timeline {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .cta-banner-inner {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .cta-buttons {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .cta-buttons .btn {
-    width: 100%;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    gap: 12px;
-    text-align: center;
-  }
-
-  .mobile-sticky-bar {
-    display: grid;
-  }
-
-  .floating-wa-btn {
-    bottom: 74px;
-    right: 16px;
-    width: 50px;
-    height: 50px;
-    font-size: 1.6rem;
-  }
-
-  .calc-wrapper {
-    padding: 20px 14px;
-  }
-
-  body {
-    padding-bottom: 60px;
-  }
-}
-
-/* ==========================================================================
-   CONTACT SECTION & METHOD CARDS (İLETİŞİM SAYFASI & ANASAYFA)
+   CONTACT SECTION & METHOD CARDS (DESKTOP)
    ========================================================================== */
 .contact-section {
   padding: 80px 0;
@@ -3355,7 +3129,7 @@ select.form-control option {
   border-color: transparent;
 }
 
-/* Contact Form Card */
+/* Contact Form Card (Desktop) */
 .contact-form-card {
   padding: clamp(24px, 3.5vw, 36px);
   border-radius: var(--radius-lg);
@@ -3387,8 +3161,9 @@ select.form-control option {
   margin-bottom: 0;
 }
 
-.form-row {
-  display: flex;
+.form-row, .form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 14px;
 }
 
@@ -3396,7 +3171,7 @@ select.form-control option {
   flex: 1;
 }
 
-/* Working Hours Card */
+/* Working Hours Card (Desktop) */
 .working-hours-card {
   margin-top: 20px;
   padding: 16px 20px;
@@ -3428,7 +3203,7 @@ select.form-control option {
 }
 
 /* ==========================================================================
-   LEGAL & CONTRACT PAGES STYLING (GİZLİLİK, KVKK, TAŞIMA SÖZLEŞMESİ)
+   LEGAL & CONTRACT PAGES STYLING (DESKTOP)
    ========================================================================== */
 .legal-page-section {
   padding: 60px 0 90px 0;
@@ -3584,5 +3359,391 @@ select.form-control option {
   color: #050811;
   border-color: transparent;
   font-weight: 700;
+}
+
+/* ==========================================================================
+   MASTER RESPONSIVE DESIGN (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .nav-menu {
+    gap: 8px;
+  }
+  .nav-link {
+    font-size: 0.8rem;
+    padding: 4px 2px;
+  }
+  .logo-img {
+    height: 52px;
+  }
+  .brand-name {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 1080px) {
+  .nav-menu, .nav-actions .btn {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: flex;
+  }
+
+  .hero-grid,
+  .quick-quote-grid,
+  .calc-grid,
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px;
+  }
+
+  .summary-sticky-card {
+    position: static;
+  }
+
+  .routes-grid,
+  .services-grid,
+  .stats-grid,
+  .footer-grid,
+  .gallery-grid,
+  .process-timeline,
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .gallery-item.large-item {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --nav-height: 72px;
+  }
+
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    overflow-x: clip !important;
+  }
+
+  body {
+    padding-bottom: 60px;
+  }
+
+  .container {
+    padding: 0 16px;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .logo-img {
+    height: 48px;
+  }
+
+  .brand-name {
+    font-size: 1.15rem;
+  }
+
+  .section-title {
+    font-size: 1.65rem;
+    line-height: 1.3;
+  }
+
+  .section-desc {
+    font-size: 0.92rem;
+  }
+
+  /* Hero Mobile */
+  .hero-section {
+    padding: 30px 0 70px 0;
+  }
+
+  .hero-floating-content {
+    max-width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .hero-floating-content .hero-title {
+    font-size: 1.7rem;
+    line-height: 1.25;
+  }
+
+  .hero-floating-content .hero-desc {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-slider-bar {
+    bottom: 10px;
+    right: 12px;
+    left: 12px;
+    max-width: calc(100% - 24px);
+    justify-content: space-between;
+    padding: 6px 10px;
+    box-sizing: border-box;
+  }
+
+  .hero-slider-caption {
+    font-size: 0.70rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 55%;
+  }
+
+  /* Grids & Cards full width on Mobile */
+  .routes-grid,
+  .services-grid,
+  .stats-grid,
+  .testimonials-grid,
+  .gallery-grid,
+  .process-timeline,
+  .packaging-features-grid,
+  .contact-grid,
+  .quick-quote-grid,
+  .calc-grid,
+  .showcase-grid,
+  .footer-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 20px !important;
+  }
+
+  .gallery-item {
+    height: 280px;
+  }
+
+  .room-selector-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  /* Bize Ulaşın & İletişim Formu (Contact Section Mobile) */
+  .contact-section {
+    padding: 50px 0;
+  }
+
+  .contact-info-col,
+  .contact-form-col {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .contact-methods,
+  .contact-cards-list {
+    width: 100%;
+    gap: 12px;
+  }
+
+  .contact-method-card,
+  .contact-card-item {
+    padding: 12px 14px !important;
+    gap: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    flex-wrap: wrap !important;
+    transform: none !important;
+  }
+
+  .contact-method-card .c-icon,
+  .contact-card-item .cc-icon {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 1.15rem !important;
+  }
+
+  .contact-method-card .c-value,
+  .contact-card-item .cc-value {
+    font-size: 1.05rem !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+
+  .contact-method-card .c-text {
+    font-size: 0.85rem !important;
+    word-break: break-word !important;
+  }
+
+  .contact-method-card .c-action-btn {
+    font-size: 0.74rem !important;
+    padding: 4px 12px !important;
+    margin-top: 4px !important;
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Contact & Quick Form Mobile Input Rows */
+  .contact-form-card,
+  .hero-quick-card,
+  .calc-wrapper {
+    padding: 20px 14px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    border-radius: var(--radius-md) !important;
+  }
+
+  .form-row,
+  .form-row-2 {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  .form-group {
+    width: 100% !important;
+    margin-bottom: 8px !important;
+  }
+
+  .form-group label {
+    font-size: 0.84rem !important;
+    margin-bottom: 4px !important;
+    display: block !important;
+  }
+
+  .form-control {
+    width: 100% !important;
+    font-size: 0.9rem !important;
+    padding: 10px 12px !important;
+    box-sizing: border-box !important;
+  }
+
+  .working-hours-card {
+    padding: 14px 14px !important;
+    font-size: 0.82rem !important;
+  }
+
+  /* CTA Banner Mobile */
+  .cta-banner-section {
+    padding: 36px 0;
+  }
+
+  .cta-banner-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 0 8px;
+  }
+
+  .cta-text h2 {
+    font-size: 1.35rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .cta-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Comparison & Legal Tables Mobile */
+  .comparison-table-wrapper,
+  .legal-table-responsive {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px 0;
+  }
+
+  .comparison-table,
+  .legal-table {
+    min-width: 520px;
+  }
+
+  /* Legal Pages Mobile */
+  .legal-card {
+    padding: 20px 14px !important;
+  }
+
+  .legal-header-box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .legal-article-title {
+    font-size: 1.15rem;
+  }
+
+  .legal-nav-chips {
+    gap: 6px;
+  }
+
+  .legal-chip {
+    font-size: 0.76rem;
+    padding: 6px 12px;
+  }
+
+  /* Footer Mobile */
+  .main-footer {
+    padding: 45px 0 20px 0;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .footer-bottom-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .mobile-sticky-bar {
+    display: grid;
+  }
+
+  .floating-wa-btn {
+    bottom: 72px;
+    right: 14px;
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.45rem;
+  }
+
+  .hero-floating-content .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .room-selector-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stat-number {
+    font-size: 1.6rem;
+  }
+
+  .contact-method-card,
+  .contact-card-item {
+    padding: 10px 12px !important;
+  }
 }
 
