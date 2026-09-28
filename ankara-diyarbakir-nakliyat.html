@@ -40,7 +40,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=3.0">
 
   <!-- Structured Data: Service & FAQ -->
   <script type="application/ld+json">
@@ -349,7 +349,8 @@
         <p class="section-desc">Fiyatlarımız kat durumu, asansör ihtiyacı ve eşya hacmine göre sözleşmeli olarak sabitlenir. Taşınma günü sürpriz masraf çıkmaz.</p>
       </div>
 
-      <div class="comparison-table-wrapper glass-panel mt-4">
+      <!-- Desktop Table (Hidden on mobile <= 992px) -->
+      <div class="comparison-table-wrapper glass-panel mt-4 desktop-only-table">
         <table class="comparison-table">
           <thead>
             <tr>
@@ -392,6 +393,54 @@
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <!-- Mobile Price Cards (Mobile <= 992px) -->
+      <div class="route-price-cards-mobile mt-4">
+        <div class="route-price-card">
+          <div class="route-card-head">
+            <span class="route-card-title">1+1 Daire Taşıma</span>
+            <span class="route-card-price">19.000 ₺ - 24.000 ₺</span>
+          </div>
+          <p class="route-card-desc"><i class="fa-solid fa-box text-gold"></i> Paketleme + Çelik Kasa Sevkiyat + Sigorta</p>
+          <div class="route-card-footer"><i class="fa-solid fa-clock text-gold"></i> Süre: 24 Saat</div>
+        </div>
+
+        <div class="route-price-card">
+          <div class="route-card-head">
+            <span class="route-card-title">2+1 Daire Taşıma</span>
+            <span class="route-card-price">23.000 ₺ - 29.000 ₺</span>
+          </div>
+          <p class="route-card-desc"><i class="fa-solid fa-box text-gold"></i> VIP Kraft Ambalaj + Marangoz Montaj + Sigorta</p>
+          <div class="route-card-footer"><i class="fa-solid fa-clock text-gold"></i> Süre: 24-36 Saat</div>
+        </div>
+
+        <div class="route-price-card">
+          <div class="route-card-head">
+            <span class="route-card-title">3+1 Standart Konut</span>
+            <span class="route-card-price">27.000 ₺ - 35.000 ₺</span>
+          </div>
+          <p class="route-card-desc"><i class="fa-solid fa-box text-gold"></i> Anahtar Teslim Paketleme + Asansör + Marangoz + Kasko</p>
+          <div class="route-card-footer"><i class="fa-solid fa-clock text-gold"></i> Süre: 24-36 Saat</div>
+        </div>
+
+        <div class="route-price-card">
+          <div class="route-card-head">
+            <span class="route-card-title">4+1 & Dubleks Konut</span>
+            <span class="route-card-price">34.000 ₺ - 44.000 ₺</span>
+          </div>
+          <p class="route-card-desc"><i class="fa-solid fa-box text-gold"></i> Özel Tır Tahsisi + Asansör + 5 Kişilik Ekip + Tam Montaj</p>
+          <div class="route-card-footer"><i class="fa-solid fa-clock text-gold"></i> Süre: 36-48 Saat</div>
+        </div>
+
+        <div class="route-price-card">
+          <div class="route-card-head">
+            <span class="route-card-title">Parça Eşya / Çeyiz</span>
+            <span class="route-card-price">8.000 ₺ - 15.000 ₺</span>
+          </div>
+          <p class="route-card-desc"><i class="fa-solid fa-box text-gold"></i> Parsiyel Sevkiyat + Ambalajlama + Sigorta</p>
+          <div class="route-card-footer"><i class="fa-solid fa-clock text-gold"></i> Süre: 2-3 Gün</div>
+        </div>
       </div>
 
       <div class="text-center mt-4">
@@ -523,6 +572,6 @@
     <a href="#fiyat-hesapla" class="mob-btn"><i class="fa-solid fa-calculator text-gold"></i><span>Fiyat Al</span></a>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=3.0"></script>
 </body>
 </html>

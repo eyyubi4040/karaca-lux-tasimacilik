@@ -913,6 +913,19 @@ button, input, select, textarea {
   pointer-events: auto;
 }
 
+/* Mobile Component Defaults (hidden on desktop) */
+.hero-mobile-slider-box {
+  display: none;
+}
+
+.comparison-cards-mobile {
+  display: none;
+}
+
+.route-price-cards-mobile {
+  display: none;
+}
+
 .hero-bg-overlay {
   position: absolute;
   top: 0;
@@ -3480,51 +3493,162 @@ select.form-control option {
 
   /* Hero Mobile */
   .hero-section {
-    padding: 30px 0 70px 0;
+    padding: 24px 0 45px 0 !important;
+    position: relative;
+    background: var(--bg-primary);
+  }
+
+  .desktop-hero-slider,
+  .desktop-hero-overlay,
+  .desktop-slider-bar {
+    display: none !important;
   }
 
   .hero-floating-content {
     max-width: 100%;
-    margin-bottom: 16px;
+    margin-bottom: 0;
   }
 
   .hero-floating-content .hero-title {
-    font-size: 1.7rem;
+    font-size: 1.55rem;
     line-height: 1.25;
+    margin-bottom: 12px;
   }
 
   .hero-floating-content .hero-desc {
-    font-size: 0.92rem;
-    line-height: 1.6;
+    font-size: 0.90rem;
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+
+  /* Mobile Dedicated Rotating Photo Slider Frame */
+  .hero-mobile-slider-box {
+    display: block !important;
+    width: 100% !important;
+    margin: 12px 0 16px 0 !important;
+  }
+
+  .hero-mobile-slider-frame {
+    position: relative !important;
+    width: 100% !important;
+    height: 225px !important;
+    aspect-ratio: 16 / 10 !important;
+    max-height: 250px !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    border: 2px solid rgba(212, 175, 55, 0.45) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.15) !important;
+    background: #060a14 !important;
+  }
+
+  .hero-mobile-slide {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    opacity: 0;
+    transform: scale(1.02);
+    transition: opacity 0.8s ease-in-out, transform 4s ease-out;
+  }
+
+  .hero-mobile-slide.active {
+    opacity: 1 !important;
+    transform: scale(1);
+  }
+
+  .hero-mobile-slider-badge {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    background: rgba(6, 10, 20, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 0.74rem;
+    color: var(--text-heading);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 5;
+  }
+
+  .hero-mobile-slider-badge i {
+    color: var(--gold-light);
+  }
+
+  .hero-mobile-slider-controls {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-top: 10px !important;
+    padding: 0 4px !important;
+  }
+
+  .m-slider-btn {
+    background: rgba(13, 21, 39, 0.9);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    color: var(--gold-light);
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+  }
+
+  .m-slider-btn:active {
+    background: var(--gold-primary);
+    color: #000;
+  }
+
+  .m-slider-dots {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .m-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .m-dot.active {
+    width: 22px;
+    border-radius: 8px;
+    background: var(--gold-primary);
+    box-shadow: 0 0 8px rgba(229, 169, 60, 0.6);
   }
 
   .hero-cta-group {
-    flex-direction: column;
-    width: 100%;
-    gap: 8px;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+    width: 100% !important;
   }
 
   .hero-cta-group .btn {
     width: 100%;
     justify-content: center;
-  }
-
-  .hero-slider-bar {
-    bottom: 10px;
-    right: 12px;
-    left: 12px;
-    max-width: calc(100% - 24px);
-    justify-content: space-between;
-    padding: 6px 10px;
-    box-sizing: border-box;
-  }
-
-  .hero-slider-caption {
-    font-size: 0.70rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: 55%;
+    padding: 11px 8px !important;
+    font-size: 0.85rem !important;
+    text-align: center;
   }
 
   /* Grids & Cards full width on Mobile */
@@ -3677,7 +3801,98 @@ select.form-control option {
     justify-content: center;
   }
 
-  /* Comparison & Pricing Tables Mobile Responsive Cards */
+  /* Desktop Only Table Hidden on Mobile */
+  .desktop-only-table {
+    display: none !important;
+  }
+
+  /* Comparison Cards Mobile (Dedicated 100% Mobile View) */
+  .comparison-cards-mobile {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .comp-mobile-card {
+    background: rgba(13, 21, 39, 0.92) !important;
+    border: 1px solid rgba(212, 175, 55, 0.32) !important;
+    border-radius: 14px !important;
+    padding: 16px 14px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    gap: 10px !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .comp-card-title {
+    font-size: 1.05rem !important;
+    font-weight: 800 !important;
+    color: var(--gold-light) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding-bottom: 8px !important;
+    margin-bottom: 2px !important;
+  }
+
+  .comp-card-item {
+    border-radius: 10px !important;
+    padding: 12px 14px !important;
+    font-size: 0.88rem !important;
+    line-height: 1.5 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+  .comp-card-item p {
+    margin: 0 !important;
+    color: inherit !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+  }
+
+  .comp-karaca {
+    background: linear-gradient(135deg, rgba(229, 169, 60, 0.18) 0%, rgba(229, 169, 60, 0.06) 100%) !important;
+    border: 1.5px solid rgba(229, 169, 60, 0.5) !important;
+    color: #ffffff !important;
+  }
+
+  .comp-badge-karaca {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    font-weight: 800 !important;
+    font-size: 0.74rem !important;
+    color: var(--gold-light) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .comp-others {
+    background: rgba(239, 68, 68, 0.08) !important;
+    border: 1px solid rgba(239, 68, 68, 0.28) !important;
+    color: #cbd5e1 !important;
+  }
+
+  .comp-badge-others {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    font-weight: 700 !important;
+    font-size: 0.72rem !important;
+    color: #f87171 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    margin-bottom: 6px !important;
+  }
+
+  /* Comparison & Pricing Tables Fallback Responsive Cards */
   .comparison-table-wrapper,
   .legal-table-responsive {
     width: 100% !important;
@@ -3734,66 +3949,6 @@ select.form-control option {
     border: none !important;
   }
 
-  /* Neden Karaca Lux - Criteria Heading */
-  .why-us-section .comparison-table tr td:first-child {
-    font-size: 1.02rem !important;
-    font-weight: 800 !important;
-    color: var(--gold-light) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-    padding-bottom: 8px !important;
-    margin-bottom: 2px !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 8px !important;
-  }
-
-  .why-us-section .comparison-table tr td:first-child::before {
-    content: '👑';
-    font-size: 0.95rem;
-  }
-
-  /* Neden Karaca Lux - Highlighted Karaca Lux cell */
-  .comparison-table td.col-highlight {
-    background: linear-gradient(135deg, rgba(229, 169, 60, 0.18) 0%, rgba(229, 169, 60, 0.06) 100%) !important;
-    border: 1px solid rgba(229, 169, 60, 0.45) !important;
-    border-radius: 10px !important;
-    padding: 12px 14px !important;
-    font-size: 0.9rem !important;
-    line-height: 1.5 !important;
-    color: #ffffff !important;
-  }
-
-  .comparison-table td.col-highlight::before {
-    content: '★ KARACA LUX TAŞIMACILIK:';
-    display: block;
-    font-weight: 800;
-    font-size: 0.76rem;
-    color: var(--gold-light);
-    letter-spacing: 0.5px;
-    margin-bottom: 5px;
-  }
-
-  /* Neden Karaca Lux - Ordinary Movers cell */
-  .comparison-table td.col-others {
-    background: rgba(239, 68, 68, 0.08) !important;
-    border: 1px solid rgba(239, 68, 68, 0.28) !important;
-    border-radius: 10px !important;
-    padding: 12px 14px !important;
-    font-size: 0.86rem !important;
-    line-height: 1.5 !important;
-    color: #cbd5e1 !important;
-  }
-
-  .comparison-table td.col-others::before {
-    content: '✕ SIRADAN / KORSAN NAKLİYECİLER:';
-    display: block;
-    font-weight: 700;
-    font-size: 0.74rem;
-    color: #f87171;
-    letter-spacing: 0.5px;
-    margin-bottom: 5px;
-  }
-
   /* Route Pages Pricing Tables Mobile Cards */
   .price-table-section .comparison-table tr td:first-child {
     font-size: 1.05rem !important;
@@ -3843,6 +3998,69 @@ select.form-control option {
     color: var(--text-muted);
     font-weight: 600;
     font-size: 0.82rem;
+  }
+
+  /* Dedicated Route Pricing Mobile Cards */
+  .route-price-cards-mobile {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .route-price-card {
+    background: rgba(13, 21, 39, 0.92) !important;
+    border: 1px solid rgba(212, 175, 55, 0.28) !important;
+    border-radius: 14px !important;
+    padding: 16px 14px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+  .route-card-head {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 4px !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  .route-card-title {
+    font-size: 1.05rem !important;
+    font-weight: 800 !important;
+    color: var(--text-heading) !important;
+  }
+
+  .route-card-price {
+    font-size: 1.05rem !important;
+    font-weight: 800 !important;
+    color: var(--gold-light) !important;
+    background: rgba(229, 169, 60, 0.12) !important;
+    padding: 4px 10px !important;
+    border-radius: 6px !important;
+    border: 1px solid rgba(229, 169, 60, 0.3) !important;
+  }
+
+  .route-card-desc {
+    font-size: 0.88rem !important;
+    color: #e2e8f0 !important;
+    line-height: 1.45 !important;
+    margin: 0 !important;
+  }
+
+  .route-card-footer {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    font-size: 0.82rem !important;
+    color: var(--text-muted) !important;
+    margin-top: 2px !important;
   }
 
   /* Legal Pages Mobile */

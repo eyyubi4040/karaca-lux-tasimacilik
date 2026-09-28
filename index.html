@@ -49,7 +49,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=3.0">
 
   <!-- Structured Data: LocalBusiness & MovingCompany (Schema.org) -->
   <script type="application/ld+json">
@@ -361,15 +361,6 @@
 
   <!-- Hero Section -->
   <section class="hero-section" id="home">
-    <!-- Hero Rotating Background Slider -->
-    <div class="hero-bg-slider" id="heroBgSlider">
-      <div class="hero-slide active" style="background-image: url('images/hero.jpg');"></div>
-      <div class="hero-slide" style="background-image: url('images/tir2.jpg');"></div>
-      <div class="hero-slide" style="background-image: url('images/filo.jpg');"></div>
-      <div class="hero-slide" style="background-image: url('images/asansor.jpg');"></div>
-    </div>
-    <div class="hero-bg-overlay"></div>
-
     <div class="container hero-container">
       <div class="hero-floating-content">
         <div class="hero-tag-wrap">
@@ -381,6 +372,29 @@
           Karaca Güvencesiyle <span class="gradient-text">Lüks & Sigortalı</span> Taşının.
         </h1>
         
+        <!-- Mobile Hero Slider Showcase (Only on mobile <= 992px) -->
+        <div class="hero-mobile-slider-box">
+          <div class="hero-mobile-slider-frame">
+            <div class="hero-mobile-slide active" style="background-image: url('images/hero.jpg');"></div>
+            <div class="hero-mobile-slide" style="background-image: url('images/tir2.jpg');"></div>
+            <div class="hero-mobile-slide" style="background-image: url('images/filo.jpg');"></div>
+            <div class="hero-mobile-slide" style="background-image: url('images/asansor.jpg');"></div>
+            <div class="hero-mobile-slider-badge">
+              <i class="fa-solid fa-camera"></i> <span id="heroMobileBadge">1/4: Karaca VIP Tır Filosu</span>
+            </div>
+          </div>
+          <div class="hero-mobile-slider-controls">
+            <button class="m-slider-btn" onclick="prevHeroSlide()" aria-label="Önceki Görsel"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="m-slider-dots" id="heroMobileDots">
+              <span class="m-dot active" onclick="setHeroSlide(0)"></span>
+              <span class="m-dot" onclick="setHeroSlide(1)"></span>
+              <span class="m-dot" onclick="setHeroSlide(2)"></span>
+              <span class="m-dot" onclick="setHeroSlide(3)"></span>
+            </div>
+            <button class="m-slider-btn" onclick="nextHeroSlide()" aria-label="Sonraki Görsel"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+
         <p class="hero-desc">
           Ankara merkezli filomuzla tüm Güneydoğu ve Türkiye geneline 15. kata kadar asansörlü, %100 sigortalı ve marangozlu evden eve nakliyat.
         </p>
@@ -402,8 +416,17 @@
       </div>
     </div>
 
-    <!-- Hero Slider Controls & Caption Badge -->
-    <div class="hero-slider-bar">
+    <!-- Desktop Background Slider (Desktop only > 992px) -->
+    <div class="hero-bg-slider desktop-hero-slider" id="heroBgSlider">
+      <div class="hero-slide active" style="background-image: url('images/hero.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('images/tir2.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('images/filo.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('images/asansor.jpg');"></div>
+    </div>
+    <div class="hero-bg-overlay desktop-hero-overlay"></div>
+
+    <!-- Desktop Hero Slider Controls & Caption Badge -->
+    <div class="hero-slider-bar desktop-slider-bar">
       <div class="hero-slider-caption" id="heroSlideCaption">
         <i class="fa-solid fa-truck-moving text-gold"></i>
         <span>1/4: Karaca VIP Tır Filosu (Ankara Otoyolu)</span>
@@ -1450,7 +1473,8 @@
         </p>
       </div>
 
-      <div class="comparison-table-wrapper glass-panel">
+      <!-- Desktop Comparison Table (Hidden on mobile <= 992px) -->
+      <div class="comparison-table-wrapper glass-panel desktop-only-table">
         <table class="comparison-table">
           <thead>
             <tr>
@@ -1492,6 +1516,87 @@
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <!-- Mobile Comparison Cards (Dedicated 100% Mobile View <= 992px) -->
+      <div class="comparison-cards-mobile">
+        <!-- Card 1 -->
+        <div class="comp-mobile-card">
+          <div class="comp-card-title"><i class="fa-solid fa-award text-gold"></i> Fiyat Garantisi</div>
+          <div class="comp-card-item comp-karaca">
+            <span class="comp-badge-karaca"><i class="fa-solid fa-crown"></i> Karaca Lux</span>
+            <p><i class="fa-solid fa-circle-check text-green"></i> <strong>Sözleşmeli Sabit Fiyat:</strong> Sonradan kesinlikle ek ücret veya sürpriz masraf talep edilmez.</p>
+          </div>
+          <div class="comp-card-item comp-others">
+            <span class="comp-badge-others"><i class="fa-solid fa-triangle-exclamation"></i> Sıradan Nakliyeciler</span>
+            <p><i class="fa-solid fa-circle-xmark text-danger"></i> Taşınma günü "eşya çokmuş, bina yüksekmiş" diyerek ekstra para isterler.</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="comp-mobile-card">
+          <div class="comp-card-title"><i class="fa-solid fa-shield-halved text-gold"></i> Sigorta & Kasko</div>
+          <div class="comp-card-item comp-karaca">
+            <span class="comp-badge-karaca"><i class="fa-solid fa-crown"></i> Karaca Lux</span>
+            <p><i class="fa-solid fa-circle-check text-green"></i> <strong>10.000.000 ₺ Resmi Poliçe:</strong> Nakliyat Emtia ve kasko sigortasıyla tüm eşyalarınız teminat altında.</p>
+          </div>
+          <div class="comp-card-item comp-others">
+            <span class="comp-badge-others"><i class="fa-solid fa-triangle-exclamation"></i> Sıradan Nakliyeciler</span>
+            <p><i class="fa-solid fa-circle-xmark text-danger"></i> Sigortasız veya sadece sözde "biz kefiliz" diyerek hasarı karşılamazlar.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="comp-mobile-card">
+          <div class="comp-card-title"><i class="fa-solid fa-elevator text-gold"></i> Asansörlü Sistem</div>
+          <div class="comp-card-item comp-karaca">
+            <span class="comp-badge-karaca"><i class="fa-solid fa-crown"></i> Karaca Lux</span>
+            <p><i class="fa-solid fa-circle-check text-green"></i> <strong>Özmal Mobil Asansör:</strong> 15. kata kadar doğrudan balkondan daireye hasarsız transfer.</p>
+          </div>
+          <div class="comp-card-item comp-others">
+            <span class="comp-badge-others"><i class="fa-solid fa-triangle-exclamation"></i> Sıradan Nakliyeciler</span>
+            <p><i class="fa-solid fa-circle-xmark text-danger"></i> Asansörsüz taşır veya üçüncü şahıslardan fahiş fiyata kiralamaya çalışırlar.</p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="comp-mobile-card">
+          <div class="comp-card-title"><i class="fa-solid fa-box-open text-gold"></i> Ambalaj Malzemesi</div>
+          <div class="comp-card-item comp-karaca">
+            <span class="comp-badge-karaca"><i class="fa-solid fa-crown"></i> Karaca Lux</span>
+            <p><i class="fa-solid fa-circle-check text-green"></i> <strong>Sıfır Hijyenik Paketleme:</strong> Kalın havalı naylon, kraft petler ve askılı tekstil kolileri.</p>
+          </div>
+          <div class="comp-card-item comp-others">
+            <span class="comp-badge-others"><i class="fa-solid fa-triangle-exclamation"></i> Sıradan Nakliyeciler</span>
+            <p><i class="fa-solid fa-circle-xmark text-danger"></i> Eski, kirli battaniyeler ve yetersiz bantlama ile eşyalar çizilir.</p>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="comp-mobile-card">
+          <div class="comp-card-title"><i class="fa-solid fa-wrench text-gold"></i> Usta & Marangoz</div>
+          <div class="comp-card-item comp-karaca">
+            <span class="comp-badge-karaca"><i class="fa-solid fa-crown"></i> Karaca Lux</span>
+            <p><i class="fa-solid fa-circle-check text-green"></i> <strong>Kadrolu Uzman Kadro:</strong> Profesyonel mobilya montaj ustası ve beyaz eşya tesisatçısı.</p>
+          </div>
+          <div class="comp-card-item comp-others">
+            <span class="comp-badge-others"><i class="fa-solid fa-triangle-exclamation"></i> Sıradan Nakliyeciler</span>
+            <p><i class="fa-solid fa-circle-xmark text-danger"></i> Gündelikçi acemi elemanlar mobilyaları yanlış monte edip zarar verir.</p>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="comp-mobile-card">
+          <div class="comp-card-title"><i class="fa-solid fa-truck-moving text-gold"></i> Araç Filosu</div>
+          <div class="comp-card-item comp-karaca">
+            <span class="comp-badge-karaca"><i class="fa-solid fa-crown"></i> Karaca Lux</span>
+            <p><i class="fa-solid fa-circle-check text-green"></i> <strong>VIP Çelik Kapalı Kasa:</strong> İçi halı kaplı, süspansiyonlu, logolu kurumsal araçlar.</p>
+          </div>
+          <div class="comp-card-item comp-others">
+            <span class="comp-badge-others"><i class="fa-solid fa-triangle-exclamation"></i> Sıradan Nakliyeciler</span>
+            <p><i class="fa-solid fa-circle-xmark text-danger"></i> Açık kasa veya derme çatma brandalı güvensiz kamyonetler.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -2036,6 +2141,6 @@
   <div id="toastContainer" class="toast-container"></div>
 
   <!-- Custom Script -->
-  <script src="script.js"></script>
+  <script src="script.js?v=3.0"></script>
 </body>
 </html>

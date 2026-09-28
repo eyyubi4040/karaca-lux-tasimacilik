@@ -59,7 +59,7 @@ const heroSlideCaptions = [
 ];
 
 function initHeroSlider() {
-  const slides = document.querySelectorAll(".hero-slide");
+  const slides = document.querySelectorAll(".hero-slide, .hero-mobile-slide");
   if (!slides || slides.length <= 1) return;
 
   startHeroSlideTimer();
@@ -69,34 +69,46 @@ function initHeroSlider() {
     sliderBar.addEventListener("mouseenter", stopHeroSlideTimer);
     sliderBar.addEventListener("mouseleave", startHeroSlideTimer);
   }
+
+  const mobileFrame = document.querySelector(".hero-mobile-slider-box");
+  if (mobileFrame) {
+    mobileFrame.addEventListener("mouseenter", stopHeroSlideTimer);
+    mobileFrame.addEventListener("mouseleave", startHeroSlideTimer);
+  }
 }
 
 function showHeroSlide(index) {
-  const slides = document.querySelectorAll(".hero-slide");
-  const dots = document.querySelectorAll(".slider-dot");
+  const dSlides = document.querySelectorAll(".hero-slide");
+  const mSlides = document.querySelectorAll(".hero-mobile-slide");
+  const dDots = document.querySelectorAll("#heroSliderDots .slider-dot");
+  const mDots = document.querySelectorAll("#heroMobileDots .m-dot");
   const caption = document.getElementById("heroSlideCaption");
-  if (!slides || slides.length === 0) return;
+  const mBadge = document.getElementById("heroMobileBadge");
 
-  currentHeroSlide = (index + slides.length) % slides.length;
+  const total = Math.max(dSlides.length, mSlides.length, 4);
+  currentHeroSlide = (index + total) % total;
 
-  slides.forEach((slide, idx) => {
-    if (idx === currentHeroSlide) {
-      slide.classList.add("active");
-    } else {
-      slide.classList.remove("active");
-    }
+  dSlides.forEach((slide, idx) => {
+    slide.classList.toggle("active", idx === currentHeroSlide);
   });
 
-  dots.forEach((dot, idx) => {
-    if (idx === currentHeroSlide) {
-      dot.classList.add("active");
-    } else {
-      dot.classList.remove("active");
-    }
+  mSlides.forEach((slide, idx) => {
+    slide.classList.toggle("active", idx === currentHeroSlide);
+  });
+
+  dDots.forEach((dot, idx) => {
+    dot.classList.toggle("active", idx === currentHeroSlide);
+  });
+
+  mDots.forEach((dot, idx) => {
+    dot.classList.toggle("active", idx === currentHeroSlide);
   });
 
   if (caption && heroSlideCaptions[currentHeroSlide]) {
     caption.innerHTML = `<i class="fa-solid fa-truck-moving text-gold"></i> <span>${heroSlideCaptions[currentHeroSlide]}</span>`;
+  }
+  if (mBadge && heroSlideCaptions[currentHeroSlide]) {
+    mBadge.textContent = heroSlideCaptions[currentHeroSlide];
   }
 }
 

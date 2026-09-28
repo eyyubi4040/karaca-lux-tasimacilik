@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=3.0">
 
   <script type="application/ld+json">
   {
@@ -275,7 +275,8 @@
         <span class="section-subtitle"><i class="fa-solid fa-tags"></i> FİYAT TARİFESİ</span>
         <h2 class="section-title">Ankara - Gaziantep <span class="gradient-text">Taşıma Fiyatları</span></h2>
       </div>
-      <div class="comparison-table-wrapper glass-panel mt-4">
+      <!-- Desktop Table (Hidden on mobile <= 992px) -->
+      <div class="comparison-table-wrapper glass-panel mt-4 desktop-only-table">
         <table class="comparison-table">
           <thead>
             <tr><th>Konut / Daire</th><th>Fiyat Aralığı</th><th>Hizmetler</th><th>Teslim</th></tr>
@@ -287,6 +288,45 @@
             <tr><td><strong>4+1 / Dubleks</strong></td><td><span class="text-gold font-bold">31.000 ₺ - 40.000 ₺</span></td><td>Özel Tır + 5 Kişilik Ekip + Asansör</td><td>24-36 Saat</td></tr>
           </tbody>
         </table>
+      </div>
+
+      <!-- Mobile Price Cards (Mobile <= 992px) -->
+      <div class="route-price-cards-mobile mt-4">
+        <div class="route-price-card">
+          <div class="route-card-head">
+            <span class="route-card-title">1+1 Daire</span>
+            <span class="route-card-price">17.000 ₺ - 22.000 ₺</span>
+          </div>
+          <p class="route-card-desc"><i class="fa-solid fa-box text-gold"></i> Paketleme + Çelik Kasa + Kasko</p>
+          <div class="route-card-footer"><i class="fa-solid fa-clock text-gold"></i> Teslimat: 24 Saat</div>
+        </div>
+
+        <div class="route-price-card">
+          <div class="route-card-head">
+            <span class="route-card-title">2+1 Daire</span>
+            <span class="route-card-price">21.000 ₺ - 27.000 ₺</span>
+          </div>
+          <p class="route-card-desc"><i class="fa-solid fa-box text-gold"></i> VIP Balonlu Ambalaj + Marangoz</p>
+          <div class="route-card-footer"><i class="fa-solid fa-clock text-gold"></i> Teslimat: 24 Saat</div>
+        </div>
+
+        <div class="route-price-card">
+          <div class="route-card-head">
+            <span class="route-card-title">3+1 Daire</span>
+            <span class="route-card-price">25.000 ₺ - 33.000 ₺</span>
+          </div>
+          <p class="route-card-desc"><i class="fa-solid fa-box text-gold"></i> Asansör + Marangoz + VIP Paketleme</p>
+          <div class="route-card-footer"><i class="fa-solid fa-clock text-gold"></i> Teslimat: 24 Saat</div>
+        </div>
+
+        <div class="route-price-card">
+          <div class="route-card-head">
+            <span class="route-card-title">4+1 / Dubleks</span>
+            <span class="route-card-price">31.000 ₺ - 40.000 ₺</span>
+          </div>
+          <p class="route-card-desc"><i class="fa-solid fa-box text-gold"></i> Özel Tır + 5 Kişilik Ekip + Asansör</p>
+          <div class="route-card-footer"><i class="fa-solid fa-clock text-gold"></i> Teslimat: 24-36 Saat</div>
+        </div>
       </div>
     </div>
   </section>
@@ -365,6 +405,6 @@
     <a href="https://wa.me/905337054408" target="_blank" class="mob-btn mob-wa"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></a>
     <a href="#fiyat-hesapla" class="mob-btn"><i class="fa-solid fa-calculator text-gold"></i><span>Fiyat Al</span></a>
   </div>
-  <script src="script.js"></script>
+  <script src="script.js?v=3.0"></script>
 </body>
 </html>
