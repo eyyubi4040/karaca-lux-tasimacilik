@@ -441,7 +441,7 @@ button, input, select, textarea {
   }
 
   .top-ig-link {
-    font-size: 0.76rem;
+    display: none !important;
   }
 }
 
