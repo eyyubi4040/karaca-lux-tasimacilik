@@ -270,7 +270,7 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   TOP BAR
+   TOP BAR - DESKTOP & MOBILE RESPONSIVE
    ========================================================================== */
 .top-bar {
   background: #050811;
@@ -278,67 +278,187 @@ button, input, select, textarea {
   font-size: 0.8rem;
   padding: 7px 0;
   color: var(--text-muted);
+  width: 100%;
 }
 
 .top-bar-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
 }
 
 .top-bar-left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
 .route-badge {
   background: rgba(229, 169, 60, 0.15);
   color: var(--gold-light);
-  padding: 2px 10px;
+  padding: 3px 10px;
   border-radius: var(--radius-full);
   font-weight: 600;
   font-size: 0.76rem;
   border: 1px solid rgba(229, 169, 60, 0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
 }
 
 .top-divider {
   color: rgba(255, 255, 255, 0.15);
 }
 
+.top-info {
+  font-size: 0.76rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
 .top-bar-right {
   display: flex;
   align-items: center;
   gap: 14px;
+  flex-shrink: 0;
 }
 
 .top-link {
   color: var(--text-heading);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 6px;
+  white-space: nowrap;
+  font-size: 0.82rem;
 }
 
 .top-link:hover {
   color: var(--gold-light);
 }
 
+.top-ig-link {
+  color: #f6c86e;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.top-ig-link:hover {
+  color: #ffffff;
+}
+
 .top-whatsapp-btn {
   background: rgba(37, 211, 102, 0.15);
   color: #25d366;
-  padding: 2px 10px;
+  padding: 3px 12px;
   border-radius: var(--radius-full);
   font-weight: 600;
   font-size: 0.76rem;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 5px;
   border: 1px solid rgba(37, 211, 102, 0.3);
+  white-space: nowrap;
 }
 
 .top-whatsapp-btn:hover {
   background: #25d366;
   color: #fff;
+}
+
+/* Visibility Utilities */
+.d-none-mobile {
+  display: inline-flex !important;
+}
+
+.d-only-mobile {
+  display: none !important;
+}
+
+/* Responsive Top Bar for Tablets & Mobiles */
+@media (max-width: 991px) {
+  .d-none-mobile {
+    display: none !important;
+  }
+  
+  .d-only-mobile {
+    display: inline-flex !important;
+  }
+
+  .top-bar {
+    padding: 6px 0;
+    font-size: 0.75rem;
+  }
+
+  .top-bar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: nowrap;
+  }
+
+  .top-bar-left {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .route-badge {
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .top-link {
+    font-size: 0.76rem;
+  }
+
+  .top-ig-link {
+    font-size: 0.76rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-bar {
+    padding: 5px 0;
+  }
+
+  .top-bar-inner {
+    gap: 6px;
+  }
+
+  .route-badge {
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+  }
+
+  .top-bar-right {
+    gap: 8px;
+  }
+
+  .top-link strong {
+    font-size: 0.75rem;
+  }
 }
 
 /* ==========================================================================
