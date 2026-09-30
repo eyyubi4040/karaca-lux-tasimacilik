@@ -328,6 +328,9 @@ function sendCalculatedQuoteToWhatsApp() {
 
   window.open(`https://wa.me/${COMPANY_PHONE}?text=${msg}`, "_blank");
   showToast("Teklif detaylarınız WhatsApp'a aktarıldı!");
+  setTimeout(() => {
+    window.location.href = "tesekkurler.html";
+  }, 700);
 }
 
 function submitCalculatorToWhatsApp(e) {
@@ -359,6 +362,9 @@ function handleQuickQuote(e) {
   window.open(waUrl, "_blank");
   showToast("Bilgileriniz WhatsApp'a aktarıldı! Müşteri temsilcimiz hemen yanıt veriyor.");
   e.target.reset();
+  setTimeout(() => {
+    window.location.href = "tesekkurler.html";
+  }, 700);
 }
 
 // Handle Contact Page Form
@@ -381,6 +387,9 @@ function submitContactForm() {
   const waUrl = `https://wa.me/${COMPANY_PHONE}?text=${encodeURIComponent(msg)}`;
   window.open(waUrl, "_blank");
   showToast("Teklif talebiniz WhatsApp'a aktarıldı!");
+  setTimeout(() => {
+    window.location.href = "tesekkurler.html";
+  }, 700);
 }
 
 // Handle Main Contact Form (Homepage)
@@ -409,6 +418,9 @@ function handleContactSubmit(e) {
   window.open(waUrl, "_blank");
   showToast("Rezervasyon talebiniz WhatsApp'a aktarıldı!");
   e.target.reset();
+  setTimeout(() => {
+    window.location.href = "tesekkurler.html";
+  }, 700);
 }
 
 // Toast notification display
