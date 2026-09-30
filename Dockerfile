@@ -14,6 +14,7 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 # Copy static website assets to web root
 COPY index.html ./
+COPY tesekkurler.html ./
 COPY ankara-diyarbakir-nakliyat.html ./
 COPY ankara-mardin-nakliyat.html ./
 COPY ankara-sanliurfa-nakliyat.html ./
