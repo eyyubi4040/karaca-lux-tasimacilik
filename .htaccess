@@ -4,9 +4,17 @@
 
 RewriteEngine On
 
-# Force HTTPS & Canonical Domain
+# 1. Force HTTPS
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2. Redirect www to non-www
+RewriteCond %{HTTP_HOST} ^www\.karacalux\.com$ [NC]
+RewriteRule ^(.*)$ https://karacalux.com/$1 [L,R=301]
+
+# 3. Canonical Redirect /index.html to /
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html [NC]
+RewriteRule ^index\.html$ https://karacalux.com/ [R=301,L]
 
 # Clean HTML Extensions (e.g. /hakkimizda -> /hakkimizda.html)
 RewriteCond %{REQUEST_FILENAME} !-d
