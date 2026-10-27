@@ -46,7 +46,48 @@ document.addEventListener("DOMContentLoaded", () => {
   initFaqAccordion();
   initHeroSlider();
   calculatePrice();
+  initCleanAnchors();
 });
+
+// Sayfa içi #linklere tıklanınca adres çubuğunda # göstermeden kaydır
+function scrollToSection(id) {
+  const target = id ? document.getElementById(id) : null;
+  if (id && !target) return false;
+  if (target) {
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  } else {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  return true;
+}
+
+function initCleanAnchors() {
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+    const id = link.getAttribute("href").slice(1);
+    if (id === "home" || id === "") {
+      e.preventDefault();
+      scrollToSection(null);
+    } else if (document.getElementById(id)) {
+      e.preventDefault();
+      scrollToSection(id);
+    } else {
+      return;
+    }
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+  });
+
+  // Dışarıdan #bolum ile gelindiyse kaydır ve # kısmını temizle
+  if (window.location.hash.length > 1) {
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    setTimeout(() => {
+      if (scrollToSection(id)) {
+        history.replaceState(null, "", window.location.pathname + window.location.search);
+      }
+    }, 100);
+  }
+}
 
 // Hero Background Slider Rotation
 let currentHeroSlide = 0;
