@@ -4,12 +4,13 @@
 
 RewriteEngine On
 
-# 1. Force HTTPS
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-# 2. Redirect www to non-www
+# 1. Redirect www to non-www (single hop, always https)
 RewriteCond %{HTTP_HOST} ^www\.karacalux\.com$ [NC]
+RewriteRule ^(.*)$ https://karacalux.com/$1 [L,R=301]
+
+# 2. Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule ^(.*)$ https://karacalux.com/$1 [L,R=301]
 
 # 3. Canonical Redirect /index.html to /
